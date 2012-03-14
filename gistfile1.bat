@@ -1,5 +1,5 @@
 rem
-rem Please download wget from http://users.ugent.be/~bpuype/wget/
+rem Please download wget.exe from http://users.ugent.be/~bpuype/wget/ and add it to your path.
 rem
 
 @echo on
