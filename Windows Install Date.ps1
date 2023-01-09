@@ -1,0 +1,1 @@
+Get-ChildItem -Path HKLM:\System\Setup\Source* | ForEach-Object {Get-ItemProperty -Path Registry::$_} | Select-Object @{n="Install Date"; e={([DateTime]'1/1/1970').AddSeconds($_.InstallDate)}} | Sort-Object "Install Date" | Select-Object -First 1 | Format-Table -HideTableHeaders
