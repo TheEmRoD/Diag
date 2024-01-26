@@ -13,12 +13,14 @@ PING localhost -n 15 >NUL
 
 "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" assignment --id 0001CoABChDotsvQvDAR7p9VBnBdqw7tEigIACAAAgAJAHoWTHXkHrEiUZcvSgGV_4RlyNRxJ6gIzfapiFJ0QZoRGkBaKE8T52wfWCOo6v7lm8e6ASEAvQIe1tMy0-E6il0PcIYXuDh6HDtVdmbP98eDGtwlmBJYk9nAVf8KoaosDsyQIAEQ_pqP0wY=
 PING localhost -n 2 >NUL
-
+"C:\Program Files (x86)\TeamViewer\TeamViewer.exe" assignment --id 0001CoABChDotsvQvDAR7p9VBnBdqw7tEigIACAAAgAJAHoWTHXkHrEiUZcvSgGV_4RlyNRxJ6gIzfapiFJ0QZoRGkBaKE8T52wfWCOo6v7lm8e6ASEAvQIe1tMy0-E6il0PcIYXuDh6HDtVdmbP98eDGtwlmBJYk9nAVf8KoaosDsyQIAEQ_pqP0wY=
+PING localhost -n 2 >NUL
 IF EXIST "%~dp0\TeamViewer_Host.zip" DEL /Q /F "%~dp0\TeamViewer_Host.zip"
 IF EXIST "%~dp0\Host" rd /Q /S "%~dp0\Host"
 IF EXIST "%~dp0\Full" rd /Q /S "%~dp0\Full"
-
 PING localhost -n 6 >NUL
+"C:\Program Files (x86)\TeamViewer\TeamViewer.exe" assignment --id 0001CoABChDotsvQvDAR7p9VBnBdqw7tEigIACAAAgAJAHoWTHXkHrEiUZcvSgGV_4RlyNRxJ6gIzfapiFJ0QZoRGkBaKE8T52wfWCOo6v7lm8e6ASEAvQIe1tMy0-E6il0PcIYXuDh6HDtVdmbP98eDGtwlmBJYk9nAVf8KoaosDsyQIAEQ_pqP0wY=
+
 :QUIT
 DEL /Q /F "%~f0"
 exit
