@@ -1,5 +1,8 @@
 ::@echo off
 SETLOCAL
+
+IF NOT EXIST "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" GOTO :QUIT
+Ecoh NO TV : Quit.
 REM *******************************************************************************
 REM ************************* DEPLOIEMENT DE TEAMVIEWER 15 ************************
 REM *******************************************************************************
