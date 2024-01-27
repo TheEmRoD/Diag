@@ -8,8 +8,12 @@ REM ************************* DEPLOIEMENT DE TEAMVIEWER 15 *********************
 REM *******************************************************************************
 
 cd "%~dp0"
+IF EXIST "%~dp0\TeamViewer_Host.zip" DEL /Q /F "%~dp0\TeamViewer_Host.zip"
+IF EXIST "%~dp0\Host" rd /Q /S "%~dp0\Host"
+IF EXIST "%~dp0\Full" rd /Q /S "%~dp0\Full"
+
 bitsadmin.exe /transfer "TV" https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI32.zip "%~dp0\TeamViewer_Host.zip"
-powershell Expand-Archive -Path """%~dp0TeamViewer_Host.zip""" -DestinationPath """%~dp0"""
+powershell Expand-Archive -Path """%~dp0TeamViewer_Host.zip""" -DestinationPath """%~dp0"" -force"
 
 msiexec.exe /passive /norestart /i Host\TeamViewer_Host.msi /qn DESKTOPSHORTCUTS=0 CUSTOMCONFIGID=6vqtzpn APITOKEN=22841762-iM9NxwMlx1b0IDp5fQRI
 PING localhost -n 15 >NUL
