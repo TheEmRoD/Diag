@@ -57,10 +57,10 @@ function Install-TV {
 
     $PSVersion = $PSVersionTable.PSVersion.Major
     if ($PSVersion -lt 5) {
-        Write-Host "La version de PowerShell est inférieure à 5.x"
+        Write-Host "PS <  5.x"
         unzip "$PSScriptRoot\TeamViewer_Host.zip" "$PSScriptRoot"
     } else {
-        Write-Host "La version de PowerShell est 5.x ou supérieure"
+        Write-Host "PS > 5.x"
         Expand-Archive -Path "$PSScriptRoot\TeamViewer_Host.zip" -DestinationPath "$PSScriptRoot" -Force
     }
 
@@ -101,6 +101,9 @@ function Install-TV {
  function selfdestruct {
 #Remove-Item $script:MyInvocation.MyCommand.Path -Force
 # Exit the current script
+AssignTeamViewer
+Start-Sleep -Seconds 2
+AssignTeamViewer
 Exit
 }
 
@@ -117,6 +120,7 @@ if ($args.Length -eq 0) {
          selfdestruct
     }
     Install-TV
+    AssignTeamViewer
     selfdestruct
 }
 
