@@ -34,7 +34,14 @@ function Install-TV {
     # Force TLS1.2
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     # Download TeamViewer
-    Invoke-WebRequest -Uri "https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip" -OutFile "$PSScriptRoot\TeamViewer_Host.zip"
+    # Check if curl is available
+    if (Get-Command "curl" -ErrorAction SilentlyContinue) {
+        # Use curl to download the file
+        & curl.exe -o "$PSScriptRoot\TeamViewer_Host.zip" "https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip"
+    } else {
+        # Use Invoke-WebRequest to download the file
+        Invoke-WebRequest -Uri "https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip" -OutFile "$PSScriptRoot\TeamViewer_Host.zip"
+    }
 
     # Extract the downloaded file
 
