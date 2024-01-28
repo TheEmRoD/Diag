@@ -92,7 +92,7 @@ function Install-TV {
 
 
  function selfdestruct {
-Remove-Item $script:MyInvocation.MyCommand.Path -Force
+#Remove-Item $script:MyInvocation.MyCommand.Path -Force
 # Exit the current script
 Exit
 }
