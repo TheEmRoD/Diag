@@ -1,8 +1,13 @@
 ::@echo off
 SETLOCAL
 
-IF NOT EXIST "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" GOTO :QUIT
+IF EXIST "C:\Program Files\TeamViewer\TeamViewer.exe" GOTO :Install
+IF EXIST "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" GOTO :Install
+
 Echo NO TV : Quit.
+GOTO :QUIT
+
+:Install
 REM *******************************************************************************
 REM ************************* DEPLOIEMENT DE TEAMVIEWER 15 ************************
 REM *******************************************************************************
@@ -12,7 +17,7 @@ IF EXIST "%~dp0\TeamViewer_Host.zip" DEL /Q /F "%~dp0\TeamViewer_Host.zip"
 IF EXIST "%~dp0\Host" rd /Q /S "%~dp0\Host"
 IF EXIST "%~dp0\Full" rd /Q /S "%~dp0\Full"
 
-bitsadmin.exe /transfer "TV" https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI32.zip "%~dp0\TeamViewer_Host.zip"
+bitsadmin.exe /transfer "TV" https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip "%~dp0\TeamViewer_Host.zip"
 powershell Expand-Archive -Path """%~dp0TeamViewer_Host.zip""" -DestinationPath """%~dp0"" -force"
 
 msiexec.exe /passive /norestart /i Host\TeamViewer_Host.msi /qn DESKTOPSHORTCUTS=0 CUSTOMCONFIGID=6vqtzpn APITOKEN=22841762-iM9NxwMlx1b0IDp5fQRI
