@@ -102,7 +102,12 @@ Exit
 if ($args.Length -eq 0) {
     #Write-Host "No parameter supplied."
 } else {
-    Write-Host "Fored Install"
+    Write-Host "Forced Install"
+    # Check if TeamViewer 15 is installed
+    if (Test-Path "C:\Program Files\TeamViewer\TeamViewer15_Logfile.log") {
+         Write-Host "TV 15 Present"
+        selfdestruct
+    }
     Install-TV
     selfdestruct
 }
