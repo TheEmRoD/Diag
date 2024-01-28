@@ -1,7 +1,12 @@
 ::@echo off
 SETLOCAL
-IF EXIST %1 ECHO %1
-IF "%1"=="FORCE" GOTO :Install
+if "%~1"=="" (
+    echo No parameter supplied.
+) else (
+    echo Parameter supplied: %1
+    GOTO :Install
+)
+
 IF EXIST type "c:\program files\teamviewer\TeamViewer15_Logfile.log" GOTO :QUIT
 IF EXIST "C:\Program Files\TeamViewer\TeamViewer.exe" GOTO :Uninstall
 IF EXIST "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" GOTO :Uninstall
