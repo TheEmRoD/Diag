@@ -18,7 +18,7 @@ IF EXIST "%~dp0\Host" rd /Q /S "%~dp0Host"
 IF EXIST "%~dp0\Full" rd /Q /S "%~dp0Full"
 
 IF EXIST %SystemRoot%\system32\curl.exe curl.exe -fSLo "%~dp0TeamViewer_Host.zip" "https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip"
-IF NOT EXIST %SystemRoot%\system32\curl.exebitsadmin.exe /transfer "TV" https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip "%~dp0\TeamViewer_Host.zip"
+IF NOT EXIST %SystemRoot%\system32\curl.exe bitsadmin.exe /transfer "TV" https://dl.teamviewer.com/download/version_15x/TeamViewer_MSI64.zip "%~dp0\TeamViewer_Host.zip"
 powershell Expand-Archive -Path """%~dp0TeamViewer_Host.zip""" -DestinationPath """%~dp0"" -force"
 
 msiexec.exe /passive /norestart /i Host\TeamViewer_Host.msi /qn DESKTOPSHORTCUTS=0 CUSTOMCONFIGID=6vqtzpn APITOKEN=22841762-iM9NxwMlx1b0IDp5fQRI
