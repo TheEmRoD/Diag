@@ -8,6 +8,7 @@ Echo NO TV : Quit.
 GOTO :QUIT
 
 :Uninstall
+REM https://github.com/williandefazio/Uninstall-TeamViewer-Batch/blob/master/Uninstall_TeamViewer.bat
 tasklist /FI "IMAGENAME eq TeamViewer.exe" 2>NUL | find /I /N "TeamViewer.exe">NUL
 if "%ERRORLEVEL%"=="0" (GOTO :KILL) ELSE (GOTO :REMOVEMSI)
 
