@@ -1,6 +1,7 @@
 ::@echo off
 SETLOCAL
-
+IF EXIST %1 ECHO %1
+IF "%1"=="FORCE" GOTO :Install
 IF EXIST type "c:\program files\teamviewer\TeamViewer15_Logfile.log" GOTO :QUIT
 IF EXIST "C:\Program Files\TeamViewer\TeamViewer.exe" GOTO :Uninstall
 IF EXIST "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" GOTO :Uninstall
@@ -26,6 +27,7 @@ msiexec.exe /x "%id%" /qn
 GOTO :Install
 
 :Install
+
 REM *******************************************************************************
 REM ************************* DEPLOIEMENT DE TEAMVIEWER 15 ************************
 REM *******************************************************************************
