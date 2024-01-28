@@ -1,6 +1,7 @@
 ::@echo off
 SETLOCAL
 
+IF EXIST type "c:\program files\teamviewer\TeamViewer15_Logfile.log" GOTO :QUIT
 IF EXIST "C:\Program Files\TeamViewer\TeamViewer.exe" GOTO :Uninstall
 IF EXIST "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" GOTO :Uninstall
 
